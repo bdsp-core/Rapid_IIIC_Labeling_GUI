@@ -1,6 +1,6 @@
 # Rapid_IIIC_Labeling_GUI
 
-This repository describes a GUI developed by Drs. Jin Jing ("JJ"), PhD & Westover that enables rapid labeling of IIIC patterns. By following these instructions you can set up the GUI to annotate your own data. 
+This repository describes a GUI developed by Dr. Jin Jing ("JJ"), PhD that enables rapid labeling of IIIC patterns. By following these instructions you can set up the GUI to annotate your own data. 
 
 **Requirements:** MATLAB, EEGLAB (https://sccn.ucsd.edu/eeglab/index.php), and Python (Anaconda)
 
