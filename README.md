@@ -56,10 +56,10 @@ Eg. row #1: scores for [0 10sec], row #2: scores for [2 12sec], ...
 
 **Step5:** Run step5_computeSpectrograms to get regional average spectrograms in .\Data\Spectrograms\, which contains the following variables:
 
-- Sdata: 4 regional average spectrograms
-- stimes: time coordinates
-- sfreqs]: frequency coordinates
-- params: spectrogram parameters
+- _Sdata_: 4 regional average spectrograms
+- _stimes_: time coordinates
+- _sfreqs_: frequency coordinates
+- _params_: spectrogram parameters
 
 **Step6:** Compute embedding map (PaCMAP) and wrap all inputs into one task folder for each patient
 
@@ -69,11 +69,11 @@ Run step6_prepare4GUI.m
 
 <img src="readme.fld/image005.png" alt="drawing" width="500"/>
 
-**Step7:** Run GUI CMGUI_Sequential_BoWspreading_v3.m inside the task folder [.\Task\subject01\]{.mark}
+**Step7:** Run GUI CMGUI_Sequential_BoWspreading_v3.m inside the task folder .\Task\subject01\
 
 <img src="readme.fld/image006.png" alt="drawing" width="300"/>  input rater initials to store scores.
 
-<img src="readme.fld/image007.png" alt="drawing" width="500"/>  click [Start]{.mark} to continue.
+<img src="readme.fld/image007.png" alt="drawing" width="500"/>  click Start to continue.
 
 Enter Phase #I: label K=50 clusters in a row.
 
@@ -83,8 +83,8 @@ Enter Phase #2: sequential inspect all labels.
 
 <img src="readme.fld/image009.png" alt="drawing" width="500"/>
 
-Press [Done]{.mark} button to seal and export the labels.
+Press _Done_ button to seal and export the labels.
 
 <img src="readme.fld/image010.png" alt="drawing" width="500"/>
 
-Please refer to slides on detailed instructions.
+Please refer to slides for detailed instructions.
