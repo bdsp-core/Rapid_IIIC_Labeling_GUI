@@ -7,20 +7,18 @@ This repository describes a GUI developed by Drs. Jin Jing ("JJ"), PhD & Westove
 **Input data:** Raw EDF files inside .\Data\EDF\]; scalp monopolar/C2 EEG that contains a full set of 19 channels + 1 EKG (optional), with channels named as follows:
 
 Fp1 F3 C3 P3 F7 T3 T5 O1 Fz Cz Pz Fp2 F4 C4 P4 F8 T4 T6 O2 (EKG)
-<img src="readme.fld/image001.png" alt="drawing" width="200"/>
+<img src="readme.fld/image001.png" alt="drawing" width="300"/>
 
 
-[Step1:]{.underline} Read EDF to MAT using EEGLAB toolbox for MATLAB. Run script step1_readEDF2MAT.m, which converts EDF format to MAT format in [.\Data\MAT\]{.mark} that contains the following variables:
+**Step1:** Read EDF to MAT using EEGLAB toolbox for MATLAB. Run script step1_readEDF2MAT.m, which converts EDF format to MAT format in .\Data\MAT\ that contains the following variables:
 
-[data]{.mark}: EEG array
+- data: EEG array
+- channels]: list of channel names in data
+- Fs: the sampling rate of data
+- startTime]: the start time vector of data
 
-[channels]{.mark}: list of channel names in data
+<img src="readme.fld/image002.png" alt="drawing" width="300"/>
 
-[Fs]{.mark}: the sampling rate of data
-
-[startTime]{.mark}: the start time vector of data
-
-{width="3.4in" height="1.1939687226596676in"}
 
 [Step2:]{.underline} Preprocess MAT to select/rearrange channels, resample to 200Hz , and denoise with [0.5 40Hz] band-pass and 5Hz band-stop centered at the power-line frequency ([US: 60Hz]{.mark} UK: 50Hz). Output files are saved in [.\Data\processed\]{.mark}.
 
