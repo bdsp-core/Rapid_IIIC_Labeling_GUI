@@ -67,11 +67,11 @@ Configure PaCMAP (Python library: https://github.com/YingfanWang/PaCMAP)
 
 Run step6_prepare4GUI.m
 
-<img src="readme.fld/image005.png" alt="drawing" width="300"/>
+<img src="readme.fld/image005.png" alt="drawing" width="500"/>
 
 **Step7:** Run GUI CMGUI_Sequential_BoWspreading_v3.m inside the task folder [.\Task\subject01\]{.mark}
 
-<img src="readme.fld/image006.png" alt="drawing" width="500"/>  input rater initials to store scores.
+<img src="readme.fld/image006.png" alt="drawing" width="300"/>  input rater initials to store scores.
 
 <img src="readme.fld/image007.png" alt="drawing" width="500"/>  click [Start]{.mark} to continue.
 
