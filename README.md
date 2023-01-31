@@ -1,10 +1,13 @@
 # Rapid_IIIC_Labeling_GUI
 
-[Requirements:]{.underline} MATLAB, EEGLAB (https://sccn.ucsd.edu/eeglab/index.php), and Python (Anaconda)
+This repository describes a GUI developed by Drs. Jin Jing ("JJ"), PhD & Westover that enables rapid labeling of IIIC patterns. By following these instructions you can set up the GUI to annotate your own data. 
 
-[Input data:]{.underline} Raw EDF files inside [.\Data\EDF\]{.mark}; scalp monopolar/C2 EEG that contains full set of 19 channels + 1 EKG (optional) as follows:
+**Requirements:** MATLAB, EEGLAB (https://sccn.ucsd.edu/eeglab/index.php), and Python (Anaconda)
 
-[Fp1 F3 C3 P3 F7 T3 T5 O1 Fz Cz Pz Fp2 F4 C4 P4 F8 T4 T6 O2 (EKG)]{.mark}
+**Input data:** Raw EDF files inside .\Data\EDF\]; scalp monopolar/C2 EEG that contains a full set of 19 channels + 1 EKG (optional), with channels named as follows:
+
+Fp1 F3 C3 P3 F7 T3 T5 O1 Fz Cz Pz Fp2 F4 C4 P4 F8 T4 T6 O2 (EKG)
+![Drag Racing](readme.fld/image001.png)
 {width="2.681948818897638in" height="2.5in"}
 
 [Step1:]{.underline} Read EDF to MAT using EEGLAB toolbox for MATLAB. Run script step1_readEDF2MAT.m, which converts EDF format to MAT format in [.\Data\MAT\]{.mark} that contains the following variables:
