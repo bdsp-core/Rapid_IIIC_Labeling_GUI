@@ -52,17 +52,14 @@ Eg. row #1: scores for [0 10sec], row #2: scores for [2 12sec], ...
 
 <img src="readme.fld/image004.png" alt="drawing" width="300"/>
 
-**Step4:** Run step4_readCSV.m to read CSV to MAT to make sure every 2sec segment got scores. The output files are saved in .\Data\iiic\model_prediction\.
+**Step4:** Run step4_readCSV.m to read CSV to MAT to make sure every 2sec segment has scores. The output files are saved in .\Data\iiic\model_prediction\.
 
 **Step5:** Run step5_computeSpectrograms to get regional average spectrograms in .\Data\Spectrograms\, which contains the following variables:
 
-[Sdata]{.mark}: 4 regional average spectrograms
-
-[stimes]{.mark}: time coordinates
-
-[sfreqs]{.mark}: frequency coordinates
-
-[params]{.mark}: spectrogram parameters
+- Sdata: 4 regional average spectrograms
+- stimes: time coordinates
+- sfreqs]: frequency coordinates
+- params: spectrogram parameters
 
 **Step6:** Compute embedding map (PaCMAP) and wrap all inputs into one task folder for each patient
 
