@@ -1,0 +1,273 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><u>Requirements:</u> MATLAB, EEGLAB (<a
+href="https://sccn.ucsd.edu/eeglab/index.php">https://sccn.ucsd.edu/eeglab/index.php</a>),
+and Python (Anaconda)</p>
+
+<p class=MsoNormal><u>Input data:</u> Raw EDF files inside <span
+style='background:lightgrey'>.\Data\EDF\</span>; scalp monopolar/C2 EEG that
+contains full set of 19 channels + 1 EKG (optional) as follows:</p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='background:
+yellow'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='background:yellow'>Fp1 F3 C3 P3 F7 T3 T5 O1 Fz Cz Pz
+Fp2 F4 C4 P4 F8 T4 T6 O2 (EKG)    </span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><img border=0 width=193
+height=180 id="Picture 2" src="readme.fld/image001.png"> </p>
+
+<p class=MsoNormal><u>Step1:</u> Read EDF to MAT using EEGLAB toolbox for
+MATLAB. Run script <span style='color:#4472C4'>step1_readEDF2MAT.m</span>,
+which converts EDF format to MAT format in <span style='background:lightgrey'>.\Data\MAT\</span>
+that contains the following variables:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='background:yellow'>data</span>: EEG array</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='background:yellow'>channels</span>: list of channel names
+in data</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='background:yellow'>Fs</span>: the sampling rate of data</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='background:yellow'>startTime</span>: the start time vector
+of data</p>
+
+<p class=MsoNormal style='margin-left:.25in'><img border=0 width=247 height=88
+id="Picture 1" src="readme.fld/image002.png"></p>
+
+<p class=MsoNormal><u>Step2:</u> Preprocess MAT to select/rearrange channels,
+resample to 200Hz , and denoise with [0.5 40Hz] band-pass and 5Hz band-stop
+centered at the power-line frequency (<span style='background:yellow'>US: 60Hz</span>
+UK: 50Hz). Output files are saved in <span style='background:lightgrey'>.\Data\processed\</span>.</p>
+
+<p class=MsoNormal>       <img border=0 width=247 height=85 id="Picture 3"
+src="readme.fld/image003.png"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><u>Step3:</u> run SPaRCNet (Python backend)</p>
+
+<p class=MsoNormal style='text-indent:.25in'><u>Configure Python </u></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Install anaconda3 and open a terminal</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>$ <span style='background:yellow'>conda create -n iiic python=3.6</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>$ <span style='background:yellow'>activate iiic</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>$ <span style='background:yellow'>conda install -c conda-forge
+hdf5storage</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>$ <span style='background:yellow'>pip install mne</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>$ <span style='background:yellow'>pip install </span><span
+style='font-size:9.0pt;line-height:107%;background:yellow'>torch==1.5.0+cpu
+torchvision==0.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html</span></p>
+
+<p class=MsoNormal style='text-indent:.25in'><u>Run MATLAB wrapper</u> <span
+style='color:#4472C4'>step3_runSPaRCNat.m</span></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>CSV score table will be export to <span style='background:lightgrey'>.\Data\iiic\</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Each row is the probabilities for 6 classes: <span style='background:
+yellow'>Other, Seizure, LPD, GPD, LRDA, and GRDA</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Starting from the 1<sup>st</sup> 10sec EEG segment and moving at 2sec
+step in time</p>
+
+<p class=MsoListParagraphCxSpMiddle>Eg. row #1: scores for [0  10sec], row #2:
+scores for [2  12sec], ... </p>
+
+<p class=MsoListParagraphCxSpLast><img border=0 width=340 height=207
+id="Picture 4" src="readme.fld/image004.png"></p>
+
+<p class=MsoNormal><u>Step4:</u> Run <span style='color:#4472C4'>step4_readCSV.m
+</span>to read CSV to MAT to make sure every 2sec segment got scores. The
+output files are saved in <span style='background:lightgrey'>.\Data\iiic\model_prediction\</span>.</p>
+
+<p class=MsoNormal><u>Step5:</u> Run <span style='color:#4472C4'>step5_computeSpectrograms
+</span>to get regional average spectrograms in <span style='background:lightgrey'>.\Data\Spectrograms\</span>,
+which contains the following variables:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='background:yellow'>Sdata</span>: 4 regional average
+spectrograms</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='background:yellow'>stimes</span>: time coordinates</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='background:yellow'>sfreqs</span>: frequency coordinates</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='background:yellow'>params</span>: spectrogram parameters</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><u> Step6:</u> Compute embedding map (PaCMAP) and wrap all inputs
+into one task folder for each patient</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Configure PaCMAP (Python library:  <a
+href="https://github.com/YingfanWang/PaCMAP">https://github.com/YingfanWang/PaCMAP</a>)</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Run <span style='color:#4472C4'>step6_prepare4GUI.m </span></p>
+
+<p class=MsoListParagraphCxSpLast><img border=0 width=468 height=450
+id="Picture 8" src="readme.fld/image005.png"></p>
+
+<p class=MsoNormal><u>Step7:</u> Run GUI <span style='color:#4472C4'>CMGUI_Sequential_BoWspreading_v3.m</span>
+inside the task folder <span style='background:lightgrey'>.\Task\subject01\</span></p>
+
+<p class=MsoNormal><img border=0 width=135 height=89 id="Picture 9"
+src="readme.fld/image006.png"> input rater initials to store scores.</p>
+
+<p class=MsoNormal><img border=0 width=470 height=283 id="Picture 10"
+src="readme.fld/image007.png">click <span style='background:yellow'>Start</span>
+to continue.</p>
+
+<p class=MsoNormal>Enter Phase #I: label K=50 clusters in a row.</p>
+
+<p class=MsoNormal><img border=0 width=470 height=283 id="Picture 11"
+src="readme.fld/image008.png"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Enter Phase #2: sequential inspect all labels.</p>
+
+<p class=MsoNormal><img border=0 width=470 height=283 id="Picture 12"
+src="readme.fld/image009.png"></p>
+
+<p class=MsoNormal>Press <span style='background:yellow'>Done</span> button to
+seal and export the labels.</p>
+
+<p class=MsoNormal><img border=0 width=470 height=282 id="Picture 13"
+src="readme.fld/image010.png"></p>
+
+<p class=MsoNormal>Please refer to slides on detailed instructions.</p>
+
+</div>
+
+</body>
+
+</html>
