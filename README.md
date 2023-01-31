@@ -71,20 +71,20 @@ Run step6_prepare4GUI.m
 
 **Step7:** Run GUI CMGUI_Sequential_BoWspreading_v3.m inside the task folder [.\Task\subject01\]{.mark}
 
-<img src="readme.fld/image006.png" alt="drawing" width="300"/>  input rater initials to store scores.
+<img src="readme.fld/image006.png" alt="drawing" width="500"/>  input rater initials to store scores.
 
-<img src="readme.fld/image007.png" alt="drawing" width="300"/>  click [Start]{.mark} to continue.
+<img src="readme.fld/image007.png" alt="drawing" width="500"/>  click [Start]{.mark} to continue.
 
 Enter Phase #I: label K=50 clusters in a row.
 
-<img src="readme.fld/image008.png" alt="drawing" width="300"/>
+<img src="readme.fld/image008.png" alt="drawing" width="500"/>
 
 Enter Phase #2: sequential inspect all labels.
 
-<img src="readme.fld/image009.png" alt="drawing" width="300"/>
+<img src="readme.fld/image009.png" alt="drawing" width="500"/>
 
 Press [Done]{.mark} button to seal and export the labels.
 
-<img src="readme.fld/image010.png" alt="drawing" width="300"/>
+<img src="readme.fld/image010.png" alt="drawing" width="500"/>
 
 Please refer to slides on detailed instructions.
