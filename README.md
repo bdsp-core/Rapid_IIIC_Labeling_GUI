@@ -2,6 +2,8 @@
 
 This repository describes a GUI developed by Dr. Jin Jing ("JJ"), PhD that enables rapid labeling of IIIC patterns. By following these instructions you can set up the GUI to annotate your own data. 
 
+Files and data can be downloaded from this GitHub repository, or [here](https://www.dropbox.com/scl/fo/wumjaqegapgni79ltwrrj/h?dl=0&rlkey=t4437wh74ur6gv319w07yqhkd)
+
 **Requirements:** MATLAB, EEGLAB (https://sccn.ucsd.edu/eeglab/index.php), and Python (Anaconda)
 
 **Input data:** Raw EDF files inside .\Data\EDF\; scalp monopolar/C2 EEG that contains a full set of 19 channels + 1 EKG (optional), with channels named as follows:
